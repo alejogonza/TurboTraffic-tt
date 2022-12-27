@@ -1,14 +1,12 @@
 import routerx from 'express-promise-router'
-import adminCheckout from '../controllers/admin/route'
-import staffCheckout from '../controllers/staff/route'
-import bussinessCheckout from '../controllers/bussiness/route'
-import healthCheckout from '../controllers/healthCheck/route'
+import productCheckout from '../controllers/product/route'
+import userCheckout from '../controllers/user/route'
+
 
 const router = routerx()
 
-router.use('/admin', adminCheckout)
-router.use('/staff', staffCheckout)
-router.use('/bussiness', bussinessCheckout)
-router.use('/healthcheck', healthCheckout)
+router.use('/products', productCheckout)
+router.use('/user', userCheckout)
+
 
 export default router

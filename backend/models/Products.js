@@ -1,51 +1,59 @@
 const getProductModel = (sequelize, DataTypes) => {
   const Products = sequelize.define('products', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
     skuId: {
       type: DataTypes.UUID,
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        notEmpty: true,
+      }
     },
     image: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
     },
     title: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
     },
     shortDescription: {
       type: DataTypes.STRING(80),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
     },
     shortDescription: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
     },
     price: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    like: {
-      type: DataTypes.INTEGER,
       allowNull: false,
-      default: 0
-    },
-    dislike: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 0
+      validate: {
+        notEmpty: true,
+      }
     }
   })
-
+  Products.associate = (models) => {
+    Products.hasMany(models.Reviews);
+  };
   return Products
 }
 

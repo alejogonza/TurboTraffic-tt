@@ -1,14 +1,14 @@
 import { sequelize } from './database/dbInit'
 import app from './app'
 import env from './libs/constants'
-import models from './models';
+import models from './models'
 import createDummyData from './services/dataDummy'
 
 async function main () {
   try {
     await sequelize.sync({ force: env.db.eraseDatabaseOnSync }).then(async () => {
       if (env.db.eraseDatabaseOnSync) {
-       await createDummyData(models)
+        await createDummyData(models)
       }
     })
 

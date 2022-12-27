@@ -6,6 +6,7 @@ export const sequelize = new Sequelize(
   env.db.user,
   env.db.password,
   {
+    host: env.db.host,
     dialect: 'postgres'
   }
 )
