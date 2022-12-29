@@ -4,7 +4,7 @@ import env from './libs/constants'
 
 async function main () {
   try {
-    await sequelize.sync({force:Boolean(env.db.eraseDatabaseOnSync)})
+    await sequelize.sync({ force: !env.db.eraseDatabaseOnSync === 'false' })
 
     app.set('port', env.PORT || 3001)
 
