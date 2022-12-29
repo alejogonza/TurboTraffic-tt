@@ -7,9 +7,8 @@ import { modelPropagate } from './middlewares/model'
 const app = express()
 app.use(
   cors({
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200,
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE']
+    origin: true,
+    credentials: true
   })
 )
 

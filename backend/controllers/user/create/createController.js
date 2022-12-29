@@ -7,7 +7,6 @@ import {
 const CreateUser = async (req, res) => {
   try {
     const { name } = req.body
-    console.log(name)
     const user = await req.context.models.Users.findOne({
       where: { name }
     })
@@ -56,31 +55,19 @@ const CreateReview = async (req, res) => {
 
       reviewQuery.set(updatedProduct)
       await reviewQuery.save()
-
-      const productQuery = await req.context.models.Products.findOne({
-        where: { id },
-        include: [
-          {
-            model: req.context.models.Reviews,
-            as: 'reviews'
-          }
-        ]
-      })
       return res.status(200).json({
-        message: 'successfully updated',
-        product: productQuery
+        message: 'Review successfully updated'
       })
     } else {
       const product = await req.context.models.Products.findByPk(id)
       if (product) {
-        const makeReview = await req.context.models.Reviews.create({
+        await req.context.models.Reviews.create({
           like: review === 'like' ? 1 : 0,
           dislike: review === 'dislike' ? 1 : 0,
           productId: id
         })
         return res.status(200).json({
-          message: 'successfully updated',
-          product: {...product.toJSON(), reviews: makeReview}
+          message: 'Review successfully updated'
         })
       } else {
         return res.status(400).json({

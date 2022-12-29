@@ -29,8 +29,8 @@ const getProductModel = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    shortDescription: {
-      type: DataTypes.STRING(255),
+    description: {
+      type: DataTypes.STRING(455),
       allowNull: false,
       validate: {
         notEmpty: true,

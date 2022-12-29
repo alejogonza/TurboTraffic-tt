@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-RUN mkdir -p /usr/src/app && mkdir -p /usr/src/app/tmp
+RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
@@ -10,6 +10,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3001
+EXPOSE 3000
 
 CMD  ["npm", "start"]

@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5vw;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+}
+
+.container {
+  display: grid;
+  grid-gap: 5vw;
+  padding: 5vw;
+  margin: auto;
+  text-align: center;
+}
+
+.box {
+  width: auto;
+  text-align: center;
+  padding: 5vh;
+  background: #36393c;
+  box-shadow: 0 8px 32px 0 rgba(173, 167, 98, 0.158);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  gap: 10px;
+  display: grid;
+}

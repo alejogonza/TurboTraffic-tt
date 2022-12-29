@@ -1,6 +1,14 @@
 export const userVerify = async (req, res, next) => {
   try {
     const user = req.headers.user
+    if (!user) {
+      return res.status(401).json({
+        auth: false,
+        errType: 'headers',
+        protectedRoute: true,
+        message: 'user header not found'
+      })
+    }
     const userValidator = await req.context.models.Users.findOne({
       where: { name: user }
     })
@@ -24,6 +32,14 @@ export const userVerify = async (req, res, next) => {
 export const adminVerify = async (req, res, next) => {
   try {
     const user = req.headers.user
+    if (!user) {
+      return res.status(401).json({
+        auth: false,
+        errType: 'headers',
+        protectedRoute: true,
+        message: 'user header not found'
+      })
+    }
     const userValidator = await req.context.models.Users.findOne({
       where: { name: user }
     })

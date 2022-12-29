@@ -1,6 +1,7 @@
+import { isPositiveInteger } from '../../../libs/functions'
+
 const GetProduct = async (req, res) => {
   try {
-    console.log(req.context)
     const products = await req.context.models.Products.findAll({
       attributes: {
         exclude: ['createdAt', 'updatedAt']
@@ -19,9 +20,40 @@ const GetProduct = async (req, res) => {
   }
 }
 
+const GetProductId = async (req, res) => {
+  try {
+    const { id } = req.query
+    if (!isPositiveInteger(id)) {
+      return res.status(400).json({
+        errType: 'id',
+        message: 'id must be a positive integer'
+      })
+    }
+    const productQuery = await req.context.models.Products.findOne({
+      where: { id: id }
+    })
+    if (productQuery) {
+      return res.status(200).json({
+        product: productQuery,
+        success: true
+      })
+    }
+
+    return res.status(400).json({
+      errType: 'id',
+      message: 'Product id not found'
+    })
+  } catch (error) {
+    console.log(error)
+    if (error && error.code) {
+      return res.status(error.code).json(error)
+    }
+    return res.status(500).json(error)
+  }
+}
+
 const GetAdminProduct = async (req, res) => {
   try {
-    console.log(req.context)
     const products = await req.context.models.Products.findAll({
       include: [
         {
@@ -44,5 +76,6 @@ const GetAdminProduct = async (req, res) => {
 }
 module.exports = {
   GetProduct,
-  GetAdminProduct
+  GetAdminProduct,
+  GetProductId
 }

@@ -11,14 +11,20 @@ services:
       - '5432:5432'
     volumes:
       - ./pgdata:/var/lib/postgresql/data
-  web:
+  api:
     container_name: turbotraffic-API
     depends_on:
     - db
     restart: always
+    environment:
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE=turbotraffic
+      - DATABASE_HOST=db
+      - DATABASE_DELETE_SNYC=false
     build: .
     ports:
-      - "3000:3000"
+      - "3001:3001"
     links:
       - db
     volumes:
