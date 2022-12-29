@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize'
 import { sequelize } from '../database/dbInit'
-import getProductModel from './products'
+import getProductModel from './Products'
 import getUsersModel from './Users'
 import getReviewModel from './Reviews'
 
