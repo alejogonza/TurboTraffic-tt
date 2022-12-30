@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# TurboTraffic Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción del proyecto :page_facing_up:
+Frontend de TurboTraffic que consta de una aplicación en react nativo para ver un catálogo de productos aplicado las mejores prácticas de programación y cumpliendo con los requerimientos de la prueba.
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+## Requerimientos e instalación :memo:
+- Docker instalado (Recomendado).
+- Node.js instalado (Opcional si tienes docker).
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Iniciar proyecto con Docker :whale:
+Ejecutar el archivo **run.sh**:
+```
+./run.sh
+```
+En cuando termine la ejecución del comando puedes abrir en cualquier navegador **http://localhost:3000**
 
-### `npm test`
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Iniciar proyecto sin docker :construction_worker:
+Los requerimientos mínimos para este método de ejecución son:
+- Node 16
 
-### `npm run build`
+```
+npm install && npm start
+```
+Luego de inicializar el frontend puedes abrir en cualquier navegador **http://localhost:3000**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Acceder a zona admin :crown:
+Debes registrarte con el nombre **fernando**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `npm run eject`
+## Comentarios sobre el desarrollo :thought_balloon:
+Durante el desarrollo del proyecto me enfoqué en un tema que involucre los requerimientos de la prueba y decidí crear Trubotraffic Shoes con una temática punk y nuclear para dar mejor estética, me enfoque en seguir los principios KISS, DRY y YAGNI así que no use ninguna librería extra que no fuera sumamente necesaria para el desarrollo de la prueba, implemente una validación de rutas algo rudimentaria que verifica que el usuario deba estar registrado para ver los productos y que deba tener el nombre fernando para ver el panel de admin, hice componentes personalizados como los botones y los inputs para reutilizarlos rápidamente en el proyecto, separe las peticiones del backend en un servicio aparte para facilitar las consultas en las páginas y mantener un orden y estructura limpia y use el context API de react para almacenar el nombre de usuario al registrarse para la autenticación de rutas. La implementación de docker en el proyecto se hizo para facilitar la revisión de la prueba.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Creado con :hammer:
+- React (18.2.0)
+- Axios (1.2.1)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Autor :copyright:
+Alejandro Gonzalez Serna - alejo.1996.2001@gmail.com
